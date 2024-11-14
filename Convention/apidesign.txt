@@ -1,0 +1,17 @@
+Status code:
+    200: Success
+    201: Created - accepted and created something
+    202: accepted and something are working, get back later
+    204: no content - trả về khi xóa resoucrce
+    304: not modified - client có thể sử dụng dữ liệu cache
+    400: Bad request - Request không hợp lệ
+    401: Unauthorize - không có auth
+    403: Forbidden - server hiểu request nhưng không đáp ứng, client không được lặp lại request này
+    404: not found.
+
+Method:
+    Get: fetch resource
+    Post: Create a hole resource
+    put: replace a hole resource
+    patch: update partial of resource
+    delete: remove resource

@@ -1,0 +1,100 @@
+QUick option: https://www.youtube.com/watch?v=ORzt0lks2H4 
+
+1. init project
+    dotnet new webapi -o name
+    dotnet new sln --name SlnName
+    dotnet sln add Proj/Proj.csproj
+
+2. add package
+    db: dotnet add package Microsoft.EntityFrameworkCore.SqlServer       or        postgre: dotnet add package Npgsql.EntityFrameworkCore.PostgreSql
+    jwtService: dotnet add package System.IdentityModel.Tokens.Jwt
+    jwtMiddleware: dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer
+
+3. Config appsetting.json
+    connectionstring
+    logging
+    jwt
+    password hash secrete
+    api
+
+4. Define domain
+5. setup AppDbContext
+6. migrate db
+    dotnet add package Microsoft.EntityFrameworkCore.Design 
+    dotnet add package Microsoft.EntityFrameworkCore.Tools
+    add migration: dotnet ef migrations add <name> 
+    remove migration: dotnet ef migrations remove
+    update database: dotnet ef database update
+    reset database: dotnet ef database update 0  -> dotnet ef database update
+    drop: dotnet ef database drop
+
+7. scaffold controller (optional)
+    dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
+    dotnet tool uninstall -g dotnet-aspnet-codegenerator
+    dotnet tool install -g dotnet-aspnet-codegenerator
+    dotnet tool update -g dotnet-aspnet-codegenerator
+    dotnet aspnet-codegenerator controller -name TodoItemsController -async -api -m TodoItem -dc TodoContext -outDir Controllers
+
+
+8. setup program.cs:
+using IA03.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using IA03.Services;
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+
+builder.Services.AddControllers();
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddScoped<JwtService>();
+
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = builder.Configuration["JwtSettings:Issuer"],
+            ValidAudience = builder.Configuration["JwtSettings:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JwtSettings:Secret"])),
+            ClockSkew = TimeSpan.Zero // remove delay of token when expire
+        };
+    });
+builder.Services.AddAuthorization();
+    
+var app = builder.Build();  
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+app.MapControllers();
+app.UseAuthentication();
+app.UseAuthorization();
+app.Run();
+
+
+
+9. containerize
+dotnet publish --os linux --arch x64 -p:PublishProfile=DefaultContainer -c Release
+
+10. generate api specification
+dotnet tool install -g Swashbuckle.AspNetCore.Cli
+dotnet new tool-manifest # if you don't already have a tool manifest
+dotnet tool install Swashbuckle.AspNetCore.Cli
+dotnet swagger tofile --output "swagger.json" "bin/Debug/net6.0/MyApi.dll" v1

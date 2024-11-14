@@ -1,0 +1,46 @@
+1. folder structure:
+    Thư mục gốc: postgres/data gồm:
+        Các file configuration kết nối: pg_hba.conf, pg_iden.conf
+        File thông tin của cluster: pg_version, current_logfiles, postmaster.opts, postmaster.pid 
+        Cấu hình db: postgresql.conf, postgresql.auto.conf --> sử dụng để tối ưu cluster
+        Sub folders:
+            base: databases
+            globals: objects sử dụng chung cho cluster
+            log: lịch sử hoạt động
+            pg_wal: recovery info
+            pg_tablespaces: tương tự như namespaces trong c++, dùng để quy hoạch, phân vùng database, mở rộng bộ nhớ..
+
+
+2. Query:
+a, Create table:
+    //brand new table
+    CREATE TABLE customers (
+        customer_id SERIAL PRIMARY KEY,
+        name VARCHAR(100),
+        email VARCHAR(100) UNIQUE,
+        phone_number VARCHAR(15),
+        created_at TIMESTAMP DEFAULT NOW()
+    );
+
+    //copy table
+    create table customers_clone
+    as select * from customers
+
+b, select
+    select upper(columnA), colunmB as new_name, sum(columnX) from customers
+    Where columnC = x and columnD like '%a%'
+    group by columnA, columnB, columnX
+    order by columnE desc
+    limit a
+    offset b;
+
+    *change data function: upper, lower,
+    *group function: max, min, avg, sum 
+    
+c, insert into customers(columnA, columnB) values (a, b)
+    insert into customers select * from customers
+
+d, update customers set "columnA" = value where columnB = condition
+e, delete from customers where columnA = condition
+
+    

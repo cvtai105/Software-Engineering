@@ -1,0 +1,4 @@
+db -> collection  -> document -> field
+                  -> method
+
+fields "_id" are auto indexed. 

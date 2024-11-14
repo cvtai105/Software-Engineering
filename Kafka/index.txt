@@ -1,0 +1,29 @@
+Apache Kafka (gọi tắt là Kafka) là một nền tảng phát trực tuyến sự kiện phân tán mã nguồn mở
+
+Giải quyết các vấn đề:
+    Liên quan tới xử lý dữ liệu thời gian thực
+    Lưu trữ log
+    chia sẻ dữ liệu trong hệ thống phân tán
+
+Thuật ngữ:
+    Producer: ứng dụng tạo dữ liệu và gửi data tới Kafka server dưới dạng byte
+    Consumer: đọc msg từ một partition bất kỳ
+    Consumer Group: nhóm các Consumer đọc chung partition
+    Cluster: gồm nhiều broker
+    Broker: gồm nhiều topic, là một Kafka server, cầu nối giữ publisher và Consumers
+    Topic: gồm nhiều partition (dữ liệu được chia theo topic)
+    partition: topic chia dữ liệu thành nhiều partition,  mỗi broker có các parition của nhiều topic.
+    Zookeeper: nơi quản lý và triển khai các broker
+    Các partition có thể đươc duplicated. Zookeeper chỉ định partition chính cho consumer, nếu partition chính dừng hoạt động, chỉ định partittion khác.
+    một broker có thể có nhiều parition của cùng 1 topic
+    
+Cơ chế hoạt động:
+    dựa trên 2 mô hình: queue và publish-subcribe
+    Trong một consumer group, khi có nhiều consumer cùng tiêu thụ dữ liệu từ một topic, 
+    Kafka sẽ tự động phân chia các partition của topic cho từng consumer trong nhóm. 
+    Mỗi consumer sẽ nhận các partition khác nhau và chịu trách nhiệm xử lý các tin nhắn trong partition mà nó được chỉ định.
+    Các group khác nhau nhận được bản sao dữ liệu cùng topic. nhưng tùy vào tốc độ xử lý sẽ có offset cách biệt
+
+Sử dụng: 
+    Các app có nghiệp vụ riêng cần sử lý, vì vậy khi 1 sự kiện xảy ra, 1 app không thể handle tất cả -->
+    Khi có sự kiện cần thông báo tới các app khác. publish lên topic cụ thể, 

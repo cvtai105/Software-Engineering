@@ -1,0 +1,18 @@
+docker là công cụ trung gian giữa phần mềm và hệ điều hành, giúp phần mềm chạy được trên mọi hệ điều hành với những câu lệnh thống nhất.
+
+docker file:
+    instruction for building an image
+    cụ thể, nó chỉ ra những file cần copy, cần chạy lệnh nào, biến môi trường, 
+
+image:
+    là một standardize package bao gồm files, binaries, libraries và configurations để chạy 1 container
+
+container:
+    là một running instance của docker image
+    có thể chạy nhiều container của cùng 1 image với các config khác nhau
+
+docker compose file:
+    dùng để thiết lập nhiều ứng dụng trên cùng 1 local network
+
+
+

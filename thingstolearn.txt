@@ -1,0 +1,3 @@
+embeded vscode
+k8s
+reliability in microservice

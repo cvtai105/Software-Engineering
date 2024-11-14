@@ -1,0 +1,7 @@
+1. xem chiến lược thực thi:
+    explain select * from table
+
+2. create index 
+    create index idx_name on table(column)
+
+3. backup & recovery

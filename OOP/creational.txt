@@ -1,0 +1,13 @@
+1. factory method: 
+    trao quyền tạo object cho concrete class
+    base class chịu trách nhiệm define các methods sử dụng factory method đó.
+2. abstract factory:
+    sử dụng khi chỉ có thể tạo object lúc runtime và client không muốn phụ thuộc vào object đó.
+3. builder:
+    Sử dụng khi khởi tạo object cần nhiều bước khác nhau
+4. prototype: 
+    Sử dụng khi việc initialize intance of class quá phức tạp. chỉ cần clone prototype và thay đổi những thứ cần thiết
+    sử dụng khi có quá nhiều biến thể của class, chỉ dựa trên 1 vài thuộc tính --> không muốn dùng factory.
+5. singleton:
+    Sử dụng để đảm bảo trong chương trình chỉ có 1 đối tượng của class để tối ưu tài nguyên
+

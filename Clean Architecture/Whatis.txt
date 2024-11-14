@@ -1,0 +1,6 @@
+is domain-centric to organizing dependencies
+reduce dependence on infrastructure
+
+When to use?
+    want to focus on domain model
+    khi nghiệp vụ phức tập cần kiến trúc highly testable

@@ -1,0 +1,35 @@
+## init project
+dotnet new list: list all command
+dotnet new gitignore
+dotnet new console -o name
+dotnet new webapi -o name
+dotnet new classlib
+dotnet build
+dotnet run
+dotnet new sln --name SlnName
+dotnet sln add Proj/Proj.csproj
+Get-ChildItem -Recurse -Filter *.csproj | ForEach-Object { dotnet sln add $_.FullName }
+
+## scaffold a controller: https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-8.0&tabs=visual-studio-code
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
+dotnet tool uninstall -g dotnet-aspnet-codegenerator
+dotnet tool install -g dotnet-aspnet-codegenerator
+dotnet tool update -g dotnet-aspnet-codegenerator
+dotnet aspnet-codegenerator controller -name TodoItemsController -async -api -m TodoItem -dc TodoContext -outDir Controllers
+
+
+## migration
+dotnet add package Microsoft.EntityFrameworkCore.Design 
+dotnet add package Microsoft.EntityFrameworkCore.Tools
+sqlserver: dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+postgre: dotnet add package Npgsql.EntityFrameworkCore.PostgreSql
+add migration: dotnet ef migrations add <name> 
+remove migration: dotnet ef migrations remove
+update database: dotnet ef database update
+reset database: dotnet ef database update 0  -> dotnet ef database update
+drop: dotnet ef database drop
+
+## containerize
+dotnet publish --os linux --arch x64 -p:PublishProfile=DefaultContainer -c Release
+reference: https://www.youtube.com/watch?v=bg0QVTS4Q0c
+https://www.youtube.com/watch?v=yQtgY4VG3kM

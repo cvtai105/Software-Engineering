@@ -1,0 +1,4 @@
+template method: là hàm định nghĩa chung ở baseclass bao gồm nhiều bước cần gọi các hàm ở lớp con
+observer: pub/sub
+strategy: cho phép thay đổi hành vi của interface trong runtime. --> tránh việc lặp những đoạn code có sử dụng interface này.
+state: nơi định nghĩa state các hành vi khi ở state đó

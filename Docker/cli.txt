@@ -1,0 +1,16 @@
+//build image:
+docker build -t <tagName> .
+
+//push to docker hub:
+docker login
+docker tag your-image-id username/repository:tag
+docker push username/repository:tag                     //default tag = lastest
+
+//check images or container
+docker images
+docker ps
+
+
+
+
+

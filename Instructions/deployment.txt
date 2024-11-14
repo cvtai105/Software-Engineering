@@ -1,0 +1,33 @@
+config priority:
+    appsetting.json
+    appsettings..json
+    secret.json
+    environment variables
+    cli arg
+
+publish docker image to dockerhub:
+    docker login (if not)
+    docker build -t username/repository:tag .
+    docker push username/repository:tag
+
+
+map appsetting to .env
+example:
+    {
+        "Logging": {
+            "LogLevel": {
+            "Default": "Information",
+            "Microsoft.AspNetCore": "Warning"
+            }
+        },
+        "CorsSettings": {
+            "AllowedOrigins": [ "https://ia03frontend.vercel.app", "https://anotherexample.com" ]
+        }
+    }
+
+--> Logging__LogLevel__Default = Information
+    Logging__LogLevel__Microsoft.AspNetCore = Warning
+    ...
+    CorsSettings__AllowedOrigin__0 = https://ia03frontend.vercel.app
+    CorsSettings__AllowedOrigin__1 = https://anotherexample.comx`
+
