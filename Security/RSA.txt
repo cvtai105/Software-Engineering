@@ -1,0 +1,8 @@
+mã hóa bất đối xứng
+sử dụng public key để encrypt
+sử dụng secret key để decrypt
+cần 1 round trip để trao đổi public key
+client sử dụng public key để mã hóa thông tin gửi tới server
+
+ứng dụng:
+    mã hóa ssl key

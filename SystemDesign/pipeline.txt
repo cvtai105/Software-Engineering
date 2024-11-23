@@ -1,0 +1,45 @@
+1. Requirements Gathering
+    Functional Requirements: Define what the system should do. These are specific tasks like user authentication, file storage, etc.
+    Non-functional Requirements (NFRs): Define system performance, scalability, availability, latency, etc. For example:
+    Scalability: Ability to handle growth in users or data.
+    Reliability: Ensures uptime and minimal downtime.
+    Latency: Response time of the system.
+    Consistency vs. Availability: Trade-offs between data accuracy and system availability.
+2. High-Level Design
+    Define the Architecture: Choose between Monolithic, Microservices, Event-Driven, or Serverless architectures.
+    Identify Key Components: For example, databases, load balancers, caching layers, queues, or third-party integrations.
+    Create a Basic Diagram: Show data flow, components, and how they interact. Diagrams include clients, servers, databases, queues, and APIs.
+3. Component Design
+    Database Design:
+        Choose the right database: SQL (e.g., MySQL, PostgreSQL) for structured data with complex queries, or NoSQL (e.g., MongoDB, Cassandra) for flexibility and scalability.
+        Consider replication and partitioning strategies for scalability.
+    API Design:
+        Design APIs for interactions. REST, GraphQL, and gRPC are common choices.
+        Define endpoints, data formats (e.g., JSON), and access controls.
+    Caching Layer:
+        Add caching to reduce load on the database and speed up responses (e.g., Redis or Memcached).
+        Define what data is cacheable, and where to place caches (in-memory, distributed, etc.).
+    Load Balancing:
+        Distribute incoming requests across multiple servers for improved performance and fault tolerance.
+        Use round-robin, IP hash, or least-connections load balancing algorithms.
+    Queues and Stream Processing:
+        Use queues (e.g., RabbitMQ, Kafka) for decoupling services and managing high-load asynchronous processing.
+4. Scalability and Redundancy
+    Horizontal vs. Vertical Scaling:
+        Horizontal scaling adds more servers, while vertical scaling upgrades server capacity.
+    Redundancy: Duplicate resources to handle failures. For instance, multi-region setups for critical systems.
+    Data Partitioning (Sharding): Split data across multiple servers to balance load.
+5. Database Management
+    Replication: Improve data availability by duplicating data across servers.
+    Sharding: Split the database into smaller parts (shards) to handle large datasets.
+    Backups: Regularly backup data to recover from disasters.
+6. Monitoring and Logging
+    Implement monitoring (e.g., Prometheus, Grafana) to track the health and performance of the system.
+    Use logging (e.g., ELK Stack: Elasticsearch, Logstash, Kibana) to track issues and analyze traffic patterns.
+7. Security
+    Authentication and Authorization: Secure user access with OAuth, JWT tokens, etc.
+    Data Encryption: Use HTTPS, SSL/TLS for data in transit and encryption for data at rest.
+    Rate Limiting: Prevent abuse by limiting requests per user/IP.
+8. Load Testing and Optimization
+    Test the System: Simulate high-load scenarios to identify bottlenecks.
+    Optimize Components: Tune database queries, cache results, reduce API latency, etc.

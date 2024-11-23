@@ -2,3 +2,10 @@ template method: là hàm định nghĩa chung ở baseclass bao gồm nhiều b
 observer: pub/sub
 strategy: cho phép thay đổi hành vi của interface trong runtime. --> tránh việc lặp những đoạn code có sử dụng interface này.
 state: nơi định nghĩa state các hành vi khi ở state đó
+chain of responsibility: sử dụng khi dư liệu có thể được xử lý ở nhiều object.
+interfreter: chuyển dữ liệu thành cấu trúc mà ứng dụng có thể hiểu
+iterator: giao diện chung cho các collection, giúp client có thể iterate collections.
+memento: nơi lưu trữ trạng thái của một đối tượng
+visitor: định nghĩa các thuật toán trên tập objects ở nơi riêng biệt.
+mediator: loại bỏ kết nối trực tiếp giữa người gửi và nhận, bắt buộc phải đi qua mediator
+command: thiết lập kết nối đơn phương giữa người nhận và người gửi với 1 Icommand

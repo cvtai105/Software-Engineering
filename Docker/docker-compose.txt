@@ -1,0 +1,23 @@
+reference: 
+    https://dev.to/alexmercedcoder/a-deep-dive-into-docker-compose-27h5
+
+template:
+"""
+version
+services
+    servicename
+        image/build
+        container_name
+        environment
+        command
+        restart
+        ports
+        volumns
+        healthcheck
+        deploy
+        profiles
+        secrets
+secrets
+"""
+
+cli:

@@ -1,0 +1,12 @@
+Thumbnail (ảnh nhỏ):
+
+Kích thước: 150x150 pixels.
+Sử dụng: Danh sách sản phẩm, danh mục sản phẩm.
+Ảnh chi tiết (ảnh lớn hơn):
+
+Kích thước: 800x800 pixels hoặc 1024x1024 pixels.
+Sử dụng: Trang chi tiết sản phẩm.
+Ảnh banner/quảng cáo:
+
+Kích thước: 1920x1080 pixels.
+Sử dụng: Banner trang chủ, quảng cáo.

@@ -6,13 +6,35 @@ docker file:
 
 image:
     là một standardize package bao gồm files, binaries, libraries và configurations để chạy 1 container
+    immutable
+    là composed layers
 
-container:
-    là một running instance của docker image
+container: 
+    là một running instance của docker image,
     có thể chạy nhiều container của cùng 1 image với các config khác nhau
+    self-containd
+    isolated
+    independent
+    portable
+
+registry:
+    centralize location for store and sharing images
+
+repository:
+    group of related image in a registry
+
+image layers:
+    image có nhiều layers, mỗi layer là một set filesystemchanges như là install basic command, copy source, install compiler, install dependencies.
+    các image có thể reuse baselayer của nhau
 
 docker compose file:
     dùng để thiết lập nhiều ứng dụng trên cùng 1 local network
+
+multi-stage build:
+    -pre compile code
+    -pre package app
+    -download dependencies
+    --> remove unneccessary things for filnal image
 
 
 

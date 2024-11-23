@@ -6,3 +6,6 @@ mvc vs 3-layered
 dependency injection
 eager loading vs lazy loading vs explicit loading
 làm thế nào để kế thừa 2 interface có cùng method
+http2 vs http1
+rsa
+which storage engine của mysql hỗ trợ transaction

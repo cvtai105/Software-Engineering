@@ -1,3 +1,8 @@
 - adapter: convert other interface to client compatible interface
 - decorator: thêm phương thức cho các class cố định (class của lib, của ngôn ngữ) (extension trong .net)
 - proxy: thêm trung gian, client chỉ được làm việc với proxy --> hạn chế quyền truy cập, hoặc mở rộng 
+- brigde: trung gian giữa abstraction và implementation, giảm sử phụ thuộc 2 bên
+- composite: tổng hợp các thành phần có quan hệ với nhau, xử lý chúng như xử lý riêng lẻ từng thành phần
+- Facade: trở thành proxy với thư viện bên ngoài, client chỉ tương tác với facade, tránh phụ thuộc vào bên thứ 3
+- Flyweight: Sử dụng khi các object có nhiều properties tương đồng, cần giảm bộ nhớ. sử dụng map truy cập tới các đối tương đã cấp phát
+

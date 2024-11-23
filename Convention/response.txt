@@ -1,0 +1,17 @@
+HEADER
+....
+BODY
+{
+    status: xxx,
+    message: "success",
+    code: "SUCCESS1"
+    type: "ok"
+    data: {
+        ...
+    }
+    meta: {
+        total: 12,
+        page_size: 10,
+        page: 1
+    } 
+}

@@ -1,8 +1,28 @@
-Chữ ký: sử dụng private key và thông tin hash thành chữ ký, người khác sử dụng public key để xác minh đúng sai. public key chỉ có tác dụng xác minh đúng sai, vì vậy người khác chỉ có thể đọc thông tin mà không thể thay đổi.
+- Chữ ký: sử dụng private key và thông tin hash thành chữ ký, người khác sử dụng public key để xác minh đúng sai. public key chỉ có tác dụng xác minh đúng sai, vì vậy người khác chỉ có thể đọc thông tin mà không thể thay đổi.
 
-Bitcoin: Dự án được triển khai trên nhiều máy tính, mỗi máy tính là một node. sử dụng Proof of work để tăng số lượng node.
-Giới hạn 21tr bitcoin bởi vì chương trình sẽ giảm số lượng bitcoin đào được dựa trên số block.
+- Bitcoin: Dự án được triển khai trên nhiều máy tính, mỗi máy tính là một node. sử dụng Proof of work để tăng số lượng node.
+- Giới hạn 21tr bitcoin bởi vì chương trình sẽ giảm số lượng bitcoin đào được dựa trên số block.
 
-Ethereum 2.0: Proof of stake.
+- Ethereum 2.0: Proof of stake.
 
-Để có thể tham gia vào blockchain -> cần kết nối tới một node của mạng đó, hoặc trở thành node và tự cung cấp api.
+- Để có thể tham gia vào blockchain -> cần kết nối tới một node của mạng đó, hoặc trở thành node và tự cung cấp api.
+
+- ECDSA: đường cong eliptic
+    tạo address:
+        private key là số ngẫu nhiên, G là điểm cơ sở trên đường cong
+        G * private sẽ cho ra điểm khác trên đường cong gọi là public key
+        mã hóa public key sẽ cho ra address
+
+    sign:
+        message hashed, 
+        private key,
+        nonce/timestamp: để đảm bảo không có 2 transaction nào trùng nhau, tránh việc lặp lại giao dịch bởi người khác
+
+    verify message with signature cần: 
+        public key
+        message with nonce/timestamp
+        signature
+
+- MPC threshold:
+    
+

@@ -1,0 +1,5 @@
+những loại dữ liệu nên cache:
+    media, static file: browser cache, CDN, Proxy
+    truy vấn database ít thay đổi: in-memory cache, database cache
+    dữ liệu người dùng (sở thích, ngôn ngữ,... ): cookie, browser
+    third-party api: in-mem cache

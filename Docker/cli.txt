@@ -11,6 +11,15 @@ docker images
 docker ps
 
 
+//remove unused image, container, volumes:
+docker system prune
 
+//remove unused volumes
+docker volume prune
 
+//validate compose file:
+docker-compose config
+
+//run multiple docker compose:
+docker-compose -f docker-compose.yml -f docker-compose.prod.yml up
 

@@ -1,0 +1,12 @@
+hệ thống tốt cần phải có:
+
+Scalability
+Modularity
+Flexibity
+Maintainability
+Security
+Reliability
+Performance
+Testability
+Cost-Effectiveness: 
+usability: dễ sử dụng

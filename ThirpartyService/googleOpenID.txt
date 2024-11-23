@@ -1,0 +1,7 @@
+User Browser       --request-->                         google login UI
+google login UI    --redirect response with code -->    UserBrowser
+Browser            ---request with code-->              frontend   (--optional request--> backend) --request token --> google
+Browser get and store jwt token.
+
+
+quyền truy cập email, thông tin, drive, sẽ được định nghĩa trong google login uri
